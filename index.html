@@ -9,13 +9,10 @@
     
     <!-- Open Graph Metadata for Luxury WhatsApp & Social Sharing -->
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Peshani & Sandeepa Wedding">
-    <meta property="og:url" content="https://peshani-sandeepa-wedding.vercel.app/">
     <meta property="og:title" content="Peshani & Sandeepa - Wedding Celebration 💍">
     <meta property="og:description" content="We cordially invite you to join us as we celebrate our new beginning. Tap to open your bespoke invitation.">
-    <meta property="og:image" content="https://peshani-sandeepa-wedding.vercel.app/preview.jpg">
-    <meta property="og:image:secure_url" content="https://peshani-sandeepa-wedding.vercel.app/preview.jpg">
-    <meta property="og:image:type" content="image/jpeg">
+    <!-- Once hosted on Vercel, replace with: https://your-project.vercel.app/preview.jpg -->
+    <meta property="og:image" content="preview.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
@@ -494,10 +491,10 @@
     <canvas id="petals-canvas"></canvas>
 
     <!-- HTML5 Audio Element for Romantic Wedding Music -->
-<audio id="wedding-audio" loop preload="auto" playsinline webkit-playsinline>
-    <source src="music.mp3" type="audio/mpeg">
-    <source src="https://assets.mixkit.co/music/preview/mixkit-serene-view-443.mp3" type="audio/mpeg">
-</audio>
+    <audio id="wedding-audio" loop preload="auto">
+        <source src="music.mp3" type="audio/mpeg">
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/16/audio_db6591201e.mp3?filename=romantic-wedding-111585.mp3" type="audio/mpeg">
+    </audio>
 
     <!-- ENVELOPE OPENING SCREEN (Seamless Ultra-Luxury 3D Envelope) -->
     <div id="envelope-screen">
@@ -1216,27 +1213,22 @@
         const synthBackupEngine = new RomanticMusicEngine();
         let isAudioPlaying = false;
 
-function playWeddingMusic() {
-    if (!audioElement) return;
-
-    const playPromise = audioElement.play();
-    if (playPromise !== undefined) {
-        playPromise.then(() => {
-            isAudioPlaying = true;
-            updateMusicUI(true);
-        }).catch((err) => {
-            console.log("Audio playback note, activating fallback:", err);
-            synthBackupEngine.start();
-            isAudioPlaying = true;
-            updateMusicUI(true);
-        });
-    } else {
-        isAudioPlaying = true;
-        updateMusicUI(true);
-    }
-}
-
-
+        function playWeddingMusic() {
+            if (audioElement && audioElement.currentSrc) {
+                audioElement.play().then(() => {
+                    isAudioPlaying = true;
+                    updateMusicUI(true);
+                }).catch(() => {
+                    synthBackupEngine.start();
+                    isAudioPlaying = true;
+                    updateMusicUI(true);
+                });
+            } else {
+                synthBackupEngine.start();
+                isAudioPlaying = true;
+                updateMusicUI(true);
+            }
+        }
 
         function pauseWeddingMusic() {
             if (audioElement) {
@@ -1414,12 +1406,6 @@ function playWeddingMusic() {
             const navActionBtn = document.getElementById('nav-action-btn');
             const navActionIcon = document.getElementById('nav-action-icon');
             const navActionLabel = document.getElementById('nav-action-label');
-            const envelopeTouch = document.getElementById('envelope');
-if (envelopeTouch) {
-    envelopeTouch.addEventListener('touchstart', function() {
-        playWeddingMusic();
-    }, { once: true, passive: true });
-}
 
             if (isAdminMode) {
                 if (testerBar) {
