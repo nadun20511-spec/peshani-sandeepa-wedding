@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peshani & Sandeepa | Royal Wedding Celebration</title>
+    
+    <meta name="description" content="You are cordially invited to celebrate the wedding of Peshani & Sandeepa on 5th November 2026 at Canterbury Hotel & Golf Resort.">
+    
+    <!-- Open Graph Metadata for Luxury WhatsApp & Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Peshani & Sandeepa - Wedding Celebration 💍">
+    <meta property="og:description" content="We cordially invite you to join us as we celebrate our new beginning. Tap to open your bespoke invitation.">
+    <!-- Once hosted on Vercel, replace with: https://your-project.vercel.app/preview.jpg -->
+    <meta property="og:image" content="preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Theme Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        peach: {
+                            50: '#fff6f2',
+                            100: '#ffe8e0',
+                            200: '#ffd3c5',
+                            300: '#ffb5a1',
+                        },
+                        gold: {
+                            light: '#faebb5',
+                            DEFAULT: '#d4af37',
+                            dark: '#a88523',
+                        },
+                        charcoal: '#2d2926',
+                        olive: {
+                            DEFAULT: '#8da076',
+                            dark: '#6e8158'
+                        }
+                    },
+                    fontFamily: {
+                        script: ['"Great Vibes"', 'cursive'],
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Lato"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(to right bottom, rgba(255, 246, 242, 0.85), rgba(255, 211, 197, 0.78)), url('https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            color: #2d2926;
+            overflow-x: hidden;
+            background-color: #fff6f2;
+        }
+        
+        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
+        .font-script { font-family: 'Great Vibes', cursive; }
+        
+        /* ========================================================
+           ULTRA-LUXURY BESPOKE 3D ENVELOPE (SEAMLESS ARCHITECTURE)
+           ======================================================== */
+        #envelope-screen {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at center, #ffffff 0%, #fff4ec 55%, #fce2d3 100%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 1.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.3s cubic-bezier(0.4, 0, 0.2, 1);
+            perspective: 1600px;
+            padding: 16px;
+        }
+
+        .envelope-wrapper {
+            position: relative;
+            width: 330px;
+            height: 225px;
+            max-width: 90vw;
+            perspective: 1400px;
+            cursor: pointer;
+            filter: drop-shadow(0 25px 45px rgba(160, 95, 65, 0.26));
+            transition: transform 0.4s ease;
+        }
+
+        @media (min-width: 480px) {
+            .envelope-wrapper { width: 380px; height: 255px; }
+        }
+
+        @media (min-width: 640px) {
+            .envelope-wrapper { width: 430px; height: 285px; }
+        }
+
+        .envelope-wrapper:hover {
+            transform: translateY(-5px) scale(1.015);
+        }
+
+        /* 1. Base Backboard of Envelope */
+        .env-back {
+            position: absolute;
+            inset: 0;
+            background: #fdfaf6;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: inset 0 0 35px rgba(190, 130, 90, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.45);
+        }
+
+        /* Inner Luxury Gold Floral Damask Liner */
+        .env-liner {
+            position: absolute;
+            inset: 8px;
+            background: linear-gradient(135deg, #fffbf8 0%, #f7ebe0 100%);
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+        }
+
+        .env-liner::before, .env-flap-liner-pattern {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: 
+                radial-gradient(#d4af37 1.2px, transparent 1.2px), 
+                radial-gradient(#e5be9b 1px, transparent 1px);
+            background-size: 22px 22px;
+            background-position: 0 0, 11px 11px;
+            opacity: 0.35;
+        }
+
+        /* 2. Invitation Card inside the pocket (Glides upward on tap) */
+        .env-card {
+            position: absolute;
+            left: 6%;
+            width: 88%;
+            height: 86%;
+            bottom: 10px;
+            background: #ffffff;
+            border-radius: 8px;
+            z-index: 3;
+            box-shadow: 0 10px 25px rgba(110, 60, 30, 0.16);
+            transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+        }
+
+        .env-card-border {
+            width: 100%;
+            height: 100%;
+            border: 1px solid rgba(212, 175, 55, 0.65);
+            outline: 2px double #d4af37;
+            outline-offset: -5px;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10px;
+            background: linear-gradient(180deg, #ffffff 0%, #fffdfa 100%);
+        }
+
+        .env-card-ornament {
+            color: #d4af37;
+            font-size: 13px;
+            letter-spacing: 4px;
+            line-height: 1;
+            margin-bottom: 2px;
+        }
+
+        .env-card-sub {
+            font-family: 'Lato', sans-serif;
+            font-size: 8px;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: #8c764e;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .env-card-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 26px;
+            color: #2d2926;
+            line-height: 1.1;
+            margin-bottom: 2px;
+        }
+
+        @media (min-width: 640px) {
+            .env-card-title { font-size: 34px; }
+            .env-card-sub { font-size: 9px; }
+        }
+
+        .env-card-line {
+            width: 38px;
+            height: 1px;
+            background: #d4af37;
+            margin: 4px auto;
+        }
+
+        .env-card-date {
+            font-family: 'Playfair Display', serif;
+            font-size: 9px;
+            letter-spacing: 0.12em;
+            font-weight: 600;
+            color: #2d2926;
+        }
+
+        .env-card-venue {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 10px;
+            color: #7a6e62;
+            margin-top: 1px;
+        }
+
+        .env-card-badge {
+            margin-top: 6px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 11px;
+            font-weight: 600;
+            color: #aa8c2c;
+            border-top: 1px dashed rgba(212, 175, 55, 0.45);
+            padding-top: 3px;
+            width: 85%;
+        }
+
+        /* 3. Envelope Front Pocket (Seamless SVG Vector) */
+        .env-pocket {
+            position: absolute;
+            inset: 0;
+            z-index: 4;
+            pointer-events: none;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .env-pocket-svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* 4. Top Flap with Real Double-Sided 3D Fold (Zero gaps) */
+        .env-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 54%;
+            transform-origin: top center;
+            transform-style: preserve-3d;
+            z-index: 5;
+            transition: transform 0.95s cubic-bezier(0.4, 0, 0.2, 1), z-index 0.2s 0.35s;
+        }
+
+        .env-flap-face {
+            position: absolute;
+            inset: 0;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .env-flap-front {
+            z-index: 2;
+            transform: rotateX(0deg);
+        }
+
+        .env-flap-back {
+            transform: rotateX(180deg);
+            overflow: hidden;
+            border-top-left-radius: 14px;
+            border-top-right-radius: 14px;
+        }
+
+        .env-flap-liner-pattern {
+            position: absolute;
+            inset: 0;
+            clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+            pointer-events: none;
+        }
+
+        /* 5. Luxury 3D Gold Monogram Wax Seal */
+        .env-seal {
+            position: absolute;
+            top: 53%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 64px;
+            height: 64px;
+            background: radial-gradient(circle at 35% 30%, #fff1ba 0%, #d4af37 45%, #94741c 100%);
+            border-radius: 50%;
+            z-index: 6;
+            box-shadow: 
+                0 9px 24px rgba(120, 70, 20, 0.42), 
+                inset 0 2px 4px rgba(255, 255, 255, 0.85), 
+                inset 0 -3px 5px rgba(0, 0, 0, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.35s ease, opacity 0.35s ease;
+            border: 2px solid #fff6d9;
+        }
+
+        @media (min-width: 640px) {
+            .env-seal { width: 74px; height: 74px; }
+        }
+
+        .env-seal:hover {
+            transform: translate(-50%, -50%) scale(1.08);
+            box-shadow: 0 12px 28px rgba(212, 175, 55, 0.6);
+        }
+
+        .seal-inner {
+            width: 80%;
+            height: 80%;
+            border-radius: 50%;
+            border: 1.5px dashed rgba(255, 255, 255, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.22);
+        }
+
+        .seal-text {
+            font-family: 'Great Vibes', cursive;
+            font-size: 26px;
+            color: #ffffff;
+            text-shadow: 1px 1px 2px rgba(80, 50, 10, 0.7);
+            user-select: none;
+        }
+
+        @media (min-width: 640px) {
+            .seal-text { font-size: 30px; }
+        }
+
+        /* Envelope Open Animation States */
+        .envelope-wrapper.open .env-flap {
+            transform: rotateX(180deg);
+            z-index: 2;
+        }
+
+        .envelope-wrapper.open .env-seal {
+            opacity: 0;
+            pointer-events: none;
+            transform: translate(-50%, -50%) scale(0.3);
+        }
+
+        .envelope-wrapper.open .env-card {
+            transform: translateY(-110px);
+            z-index: 6;
+            box-shadow: 0 18px 40px rgba(110, 60, 30, 0.26);
+        }
+
+        @media (min-width: 640px) {
+            .envelope-wrapper.open .env-card {
+                transform: translateY(-142px);
+            }
+        }
+
+        #petals-canvas {
+            position: fixed; inset: 0; width: 100vw; height: 100vh;
+            pointer-events: none; z-index: 9999;
+        }
+        
+        .main-content {
+            opacity: 0; visibility: hidden; height: 0; overflow: hidden;
+            transition: opacity 1.5s ease-in;
+        }
+        .main-content.visible {
+            opacity: 1; visibility: visible; height: auto; overflow: visible;
+        }
+
+        .border-gold-gradient { position: relative; }
+        .border-gold-gradient::before {
+            content: ""; position: absolute; inset: 0; border-radius: 1.25rem; padding: 2px;
+            background: linear-gradient(45deg, #aa8c2c, #d4af37, #faebb5, #d4af37);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+        }
+
+        @keyframes pulse-heart {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.18); }
+            100% { transform: scale(1); }
+        }
+        .animate-heartbeat { animation: pulse-heart 1.5s infinite ease-in-out; color: #d4af37; }
+
+        .nav-scrolled { background-color: rgba(255, 246, 242, 0.96); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); backdrop-filter: blur(8px); }
+        
+        #music-toggle { transition: all 0.3s ease; }
+        #music-toggle.playing {
+            box-shadow: 0 0 18px rgba(212, 175, 55, 0.65);
+            animation: spin-slow 4s linear infinite;
+        }
+        @keyframes spin-slow { 100% { transform: rotate(360deg); } }
+
+        /* Arched luxury container styling for RSVP */
+        .arched-card {
+            border-top-left-radius: 110px;
+            border-top-right-radius: 110px;
+            border-bottom-left-radius: 28px;
+            border-bottom-right-radius: 28px;
+        }
+        @media (min-width: 640px) {
+            .arched-card {
+                border-top-left-radius: 140px;
+                border-top-right-radius: 140px;
+            }
+        }
+
+        .bottom-nav-bar {
+            box-shadow: 0 -4px 25px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-peach-200 selection:text-charcoal relative pb-20 md:pb-0">
+
+    <!-- ADMIN GUEST TESTER BAR (Shown ONLY in Admin mode) -->
+    <div id="live-guest-tester" class="hidden fixed top-3 left-1/2 -translate-x-1/2 z-[160] bg-white/95 border border-gold/40 shadow-lg rounded-full px-3 py-1.5 items-center gap-2 max-w-[95vw] backdrop-blur-md">
+        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+        <span class="text-[10px] md:text-xs uppercase tracking-wider text-charcoal/70 font-semibold whitespace-nowrap">Admin Mode:</span>
+        <input type="text" id="live-tester-input" value="Sapumal Perera" oninput="applyLiveGuestName(this.value)" class="bg-peach-50/70 border border-peach-200 text-xs px-2 py-0.5 rounded-md text-charcoal font-serif italic focus:outline-none focus:border-gold w-28 sm:w-36 md:w-44" placeholder="Guest name">
+        <button type="button" onclick="checkAdminAccess()" class="text-[10px] uppercase font-bold text-gold hover:text-gold-dark px-2 py-0.5 rounded-full bg-peach-100 hover:bg-peach-200 transition">
+            <i class="fab fa-whatsapp mr-1 text-green-600"></i>Send Links
+        </button>
+    </div>
+
+    <!-- Floating Music Button (Bottom Right) -->
+    <button id="music-toggle" class="fixed bottom-20 md:bottom-6 right-5 z-[150] bg-white text-gold w-11 h-11 md:w-12 md:h-12 rounded-full shadow-xl flex items-center justify-center text-lg md:text-xl border-2 border-gold hover:bg-gold hover:text-white transition-all duration-300" aria-label="Toggle Music" onclick="toggleMusic()">
+        <i id="music-icon" class="fas fa-music"></i>
+    </button>
+
+    <!-- Floating Mobile Bottom Navigation Bar -->
+    <div class="fixed bottom-0 left-0 right-0 z-[140] bottom-nav-bar border-t border-peach-200/80 px-4 py-2 flex items-center justify-around md:hidden">
+        <a href="#envelope-screen" onclick="scrollToTop()" class="flex flex-col items-center text-charcoal/60 hover:text-gold transition">
+            <i class="fas fa-home text-base mb-0.5"></i>
+            <span class="text-[9px] uppercase tracking-wider font-semibold">Home</span>
+        </a>
+        <a href="#events" class="flex flex-col items-center text-charcoal/60 hover:text-gold transition">
+            <i class="far fa-calendar-alt text-base mb-0.5"></i>
+            <span class="text-[9px] uppercase tracking-wider font-semibold">Details</span>
+        </a>
+        <a href="#rsvp" class="flex flex-col items-center -mt-5 group">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-gold-dark to-gold text-white flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform border-2 border-white">
+                <i class="fas fa-envelope-open-text text-lg"></i>
+            </div>
+            <span class="text-[9px] uppercase tracking-wider font-bold text-gold mt-1">RSVP</span>
+        </a>
+        <a href="#gallery" class="flex flex-col items-center text-charcoal/60 hover:text-gold transition">
+            <i class="far fa-images text-base mb-0.5"></i>
+            <span class="text-[9px] uppercase tracking-wider font-semibold">Gallery</span>
+        </a>
+        <a id="nav-action-btn" href="https://maps.google.com/?q=Canterbury+Hotel+and+Golf+Resort+Kahathuduwa" target="_blank" class="flex flex-col items-center text-charcoal/60 hover:text-gold transition">
+            <i id="nav-action-icon" class="fas fa-map-marker-alt text-base mb-0.5 text-gold"></i>
+            <span id="nav-action-label" class="text-[9px] uppercase tracking-wider font-semibold">Location</span>
+        </a>
+    </div>
+
+    <!-- Floating Admin Desktop Button -->
+    <button id="admin-desktop-btn" onclick="checkAdminAccess()" class="hidden fixed bottom-6 left-6 z-[150] bg-white text-charcoal hover:text-gold px-3.5 py-2.5 rounded-full shadow-xl border border-peach-200 hover:border-gold transition-all duration-300 items-center gap-2 group backdrop-blur-md">
+        <span class="w-7 h-7 rounded-full bg-peach-100 group-hover:bg-gold text-gold group-hover:text-white flex items-center justify-center transition-colors">
+            <i class="fas fa-user-plus text-xs"></i>
+        </span>
+        <span class="text-xs uppercase font-semibold tracking-wider pr-1">Guest Links & WhatsApp</span>
+    </button>
+
+    <!-- Canvas for Floating Hearts -->
+    <canvas id="petals-canvas"></canvas>
+
+    <!-- HTML5 Audio Element for Romantic Wedding Music -->
+    <audio id="wedding-audio" loop preload="auto">
+        <source src="music.mp3" type="audio/mpeg">
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/16/audio_db6591201e.mp3?filename=romantic-wedding-111585.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- ENVELOPE OPENING SCREEN (Seamless Ultra-Luxury 3D Envelope) -->
+    <div id="envelope-screen">
+        <div class="envelope-wrapper" id="envelope" onclick="openEnvelope()">
+            
+            <!-- 1. Envelope Backboard & Inner Gold Floral Liner -->
+            <div class="env-back">
+                <div class="env-liner"></div>
+            </div>
+
+            <!-- 2. The Luxury Wedding Card inside (Slides up gracefully upon tap) -->
+            <div class="env-card" id="env-card">
+                <div class="env-card-border">
+                    <span class="env-card-ornament">❧ ❦ ☙</span>
+                    <p class="env-card-sub">Together with their families</p>
+                    <h2 class="env-card-title">Peshani<br>&amp;<br>Sandeepa</h2>
+                    <div class="env-card-line"></div>
+                    <p class="env-card-date">THURSDAY, NOV 5, 2026</p>
+                    <p class="env-card-venue">Canterbury Hotel &amp; Golf Resort</p>
+                    <div class="env-card-badge" id="card-guest-name">Sapumal Perera</div>
+                </div>
+            </div>
+
+            <!-- 3. Envelope Front Pocket (Vector-Engineered with Zero Gaps) -->
+            <div class="env-pocket">
+                <svg viewBox="0 0 430 285" preserveAspectRatio="none" class="env-pocket-svg">
+                    <defs>
+                        <linearGradient id="pocketGradLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#fffdfa" />
+                            <stop offset="100%" stop-color="#f6ede3" />
+                        </linearGradient>
+                        <linearGradient id="pocketGradRight" x1="100%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#fffdfa" />
+                            <stop offset="100%" stop-color="#f4e9dd" />
+                        </linearGradient>
+                        <linearGradient id="pocketGradBottom" x1="0%" y1="100%" x2="0%" y2="0%">
+                            <stop offset="0%" stop-color="#fbf5ee" />
+                            <stop offset="100%" stop-color="#ffffff" />
+                        </linearGradient>
+                        <filter id="pocketShadow" x="-10%" y="-10%" width="120%" height="120%">
+                            <feDropShadow dx="0" dy="-4" stdDeviation="5" flood-color="rgba(140, 85, 55, 0.16)" />
+                        </filter>
+                    </defs>
+                    <polygon points="0,0 215,148 0,285" fill="url(#pocketGradLeft)" />
+                    <polygon points="430,0 215,148 430,285" fill="url(#pocketGradRight)" />
+                    <polygon points="0,285 215,138 430,285" fill="url(#pocketGradBottom)" filter="url(#pocketShadow)" />
+                    <polyline points="0,285 215,138 430,285" fill="none" stroke="#d4af37" stroke-width="1.2" stroke-opacity="0.65" />
+                    <polyline points="15,285 215,148 415,285" fill="none" stroke="#d4af37" stroke-width="0.75" stroke-dasharray="3,3" stroke-opacity="0.4" />
+                </svg>
+            </div>
+
+            <!-- 4. Top Flap with Real 3D Double-Sided Fold (Flips 180 degrees UP) -->
+            <div class="env-flap">
+                <div class="env-flap-face env-flap-front">
+                    <svg viewBox="0 0 430 152" preserveAspectRatio="none" class="w-full h-full block">
+                        <defs>
+                            <linearGradient id="flapFrontGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#ffffff" />
+                                <stop offset="60%" stop-color="#faf2e8" />
+                                <stop offset="100%" stop-color="#f4e8d8" />
+                            </linearGradient>
+                            <filter id="flapEdgeShadow" x="-5%" y="-5%" width="110%" height="125%">
+                                <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="rgba(135, 75, 45, 0.22)" />
+                            </filter>
+                        </defs>
+                        <polygon points="0,0 430,0 215,152" fill="url(#flapFrontGrad)" filter="url(#flapEdgeShadow)" />
+                        <polyline points="0,0 215,152 430,0" fill="none" stroke="#d4af37" stroke-width="1.6" stroke-opacity="0.85" />
+                        <polyline points="22,0 215,138 408,0" fill="none" stroke="#d4af37" stroke-width="0.8" stroke-dasharray="3,3" stroke-opacity="0.5" />
+                    </svg>
+                </div>
+                <div class="env-flap-face env-flap-back">
+                    <svg viewBox="0 0 430 152" preserveAspectRatio="none" class="w-full h-full block">
+                        <defs>
+                            <linearGradient id="flapBackGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#fbf4ec" />
+                                <stop offset="100%" stop-color="#efe0cf" />
+                            </linearGradient>
+                        </defs>
+                        <polygon points="0,0 430,0 215,152" fill="url(#flapBackGrad)" />
+                        <polyline points="0,0 215,152 430,0" fill="none" stroke="#d4af37" stroke-width="1.4" stroke-opacity="0.8" />
+                    </svg>
+                    <div class="env-flap-liner-pattern"></div>
+                </div>
+            </div>
+
+            <!-- 5. Luxury 3D Wax Seal with Monogram -->
+            <div class="env-seal">
+                <div class="seal-inner">
+                    <span class="seal-text">P&amp;S</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-8 md:mt-10 text-center z-10">
+            <span class="text-gold tracking-[0.25em] uppercase text-xs font-semibold block mb-1">A Royal Wedding Invitation</span>
+            <div class="flex items-center justify-center gap-4 mb-2">
+                <div class="w-10 h-px bg-gold/40"></div>
+                <h1 class="font-script text-4xl md:text-6xl text-charcoal/90">Peshani & Sandeepa</h1>
+                <div class="w-10 h-px bg-gold/40"></div>
+            </div>
+
+            <!-- Personalized Guest Tag on Envelope -->
+            <div id="envelope-guest-badge" class="my-2 inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/95 border border-gold/60 shadow-lg backdrop-blur-md">
+                <span class="text-[10px] uppercase tracking-widest text-gold-dark font-bold">Cordially Invited:</span>
+                <span id="envelope-guest-name" class="font-serif italic text-charcoal text-sm font-semibold">Sapumal Perera</span>
+            </div>
+
+            <p class="font-serif italic text-charcoal/60 text-sm mt-2 flex items-center justify-center gap-2">
+                <i class="fas fa-hand-pointer text-gold animate-bounce text-xs"></i>
+                <span>Tap the envelope to open</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- MAIN INVITATION CONTENT -->
+    <div id="main-content" class="main-content">
+        
+        <!-- Navigation Bar -->
+        <nav id="navbar" class="fixed w-full z-40 transition-all duration-300 bg-transparent py-4">
+            <div class="max-w-6xl mx-auto px-4 md:px-6 flex justify-between items-center">
+                <a href="#" class="font-script text-3xl md:text-4xl text-charcoal hover:text-gold transition-colors">
+                    P <span class="text-gold">&</span> S
+                </a>
+                
+                <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest font-semibold text-charcoal">
+                    <a href="#couple" class="hover:text-gold transition-colors">The Couple</a>
+                    <a href="#events" class="hover:text-gold transition-colors">Details</a>
+                    <a href="#gallery" class="hover:text-gold transition-colors">Gallery</a>
+                    <a href="#rsvp" class="px-5 py-2 border border-gold text-gold hover:bg-gold hover:text-white transition-all rounded-full">RSVP</a>
+                </div>
+
+                <button class="md:hidden text-charcoal text-2xl focus:outline-none" id="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-peach-50 shadow-md py-4 flex flex-col items-center space-y-4 border-t border-peach-200 transition-all duration-300">
+                <a href="#couple" class="uppercase tracking-widest text-sm text-charcoal" onclick="toggleMobileMenu()">The Couple</a>
+                <a href="#events" class="uppercase tracking-widest text-sm text-charcoal" onclick="toggleMobileMenu()">Details</a>
+                <a href="#gallery" class="uppercase tracking-widest text-sm text-charcoal" onclick="toggleMobileMenu()">Gallery</a>
+                <a href="#rsvp" class="uppercase tracking-widest text-sm text-gold border border-gold px-6 py-2 rounded-full" onclick="toggleMobileMenu()">RSVP</a>
+            </div>
+        </nav>
+
+        <!-- Grand Hero Header -->
+        <header class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-hero-pattern bg-cover bg-center bg-no-repeat bg-fixed">
+            <div class="absolute inset-4 md:inset-8 border-2 border-white/50 rounded-lg pointer-events-none z-10 hidden sm:block">
+                <div class="absolute -top-4 -left-4 w-8 h-8 border-t-2 border-l-2 border-gold"></div>
+                <div class="absolute -top-4 -right-4 w-8 h-8 border-t-2 border-r-2 border-gold"></div>
+                <div class="absolute -bottom-4 -left-4 w-8 h-8 border-b-2 border-l-2 border-gold"></div>
+                <div class="absolute -bottom-4 -right-4 w-8 h-8 border-b-2 border-r-2 border-gold"></div>
+            </div>
+
+            <div class="text-center z-20 px-4 w-full max-w-4xl mx-auto">
+                <p class="uppercase tracking-[0.3em] text-xs md:text-sm mb-4 text-charcoal/80 font-semibold">We are getting married</p>
+                
+                <h1 class="font-script text-6xl md:text-8xl lg:text-9xl mb-2 text-charcoal leading-tight">Peshani</h1>
+                <div class="text-3xl md:text-4xl text-gold animate-heartbeat my-1"><i class="fas fa-heart"></i></div>
+                <h1 class="font-script text-6xl md:text-8xl lg:text-9xl mt-2 text-charcoal leading-tight mb-8">Sandeepa</h1>
+                
+                <div class="flex flex-col items-center mt-6 space-y-2">
+                    <p class="font-serif text-xl md:text-2xl text-charcoal/90 italic">5th November 2026</p>
+                    <div class="w-16 h-px bg-gold my-2"></div>
+                    <p class="font-sans uppercase tracking-widest text-xs md:text-sm text-charcoal/80">Canterbury Hotel & Golf Resort</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Countdown Timer Section -->
+        <section id="countdown-section" class="py-16 md:py-24 bg-white relative">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h2 class="font-serif text-3xl md:text-4xl mb-8 text-charcoal" data-aos="fade-up">Counting down the days...</h2>
+                <div class="flex justify-center items-center gap-3 md:gap-8 flex-wrap" id="countdown" data-aos="zoom-in">
+                    <div class="countdown-item flex flex-col items-center justify-center w-20 h-20 md:w-28 md:h-28 rounded-full border border-gold/40 bg-peach-50 shadow-sm">
+                        <span id="days" class="font-serif text-2xl md:text-4xl text-gold font-bold">00</span>
+                        <span class="text-[10px] md:text-xs uppercase tracking-wider text-charcoal/60 mt-1">Days</span>
+                    </div>
+                    <div class="text-xl md:text-2xl text-gold/50 font-serif">:</div>
+                    <div class="countdown-item flex flex-col items-center justify-center w-20 h-20 md:w-28 md:h-28 rounded-full border border-gold/40 bg-peach-50 shadow-sm">
+                        <span id="hours" class="font-serif text-2xl md:text-4xl text-gold font-bold">00</span>
+                        <span class="text-[10px] md:text-xs uppercase tracking-wider text-charcoal/60 mt-1">Hours</span>
+                    </div>
+                    <div class="text-xl md:text-2xl text-gold/50 font-serif hidden md:block">:</div>
+                    <div class="countdown-item flex flex-col items-center justify-center w-20 h-20 md:w-28 md:h-28 rounded-full border border-gold/40 bg-peach-50 shadow-sm">
+                        <span id="minutes" class="font-serif text-2xl md:text-4xl text-gold font-bold">00</span>
+                        <span class="text-[10px] md:text-xs uppercase tracking-wider text-charcoal/60 mt-1">Mins</span>
+                    </div>
+                    <div class="text-xl md:text-2xl text-gold/50 font-serif">:</div>
+                    <div class="countdown-item flex flex-col items-center justify-center w-20 h-20 md:w-28 md:h-28 rounded-full border border-gold/40 bg-peach-50 shadow-sm">
+                        <span id="seconds" class="font-serif text-2xl md:text-4xl text-gold font-bold">00</span>
+                        <span class="text-[10px] md:text-xs uppercase tracking-wider text-charcoal/60 mt-1">Secs</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Couple Section (Pure Royal Typography - Names Enlarged, Circles Removed) -->
+        <section id="couple" class="py-20 md:py-32 bg-peach-50">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="text-center mb-14" data-aos="fade-up">
+                    <span class="text-gold text-sm tracking-widest uppercase mb-2 block">Meet the</span>
+                    <h2 class="font-serif text-4xl md:text-5xl text-charcoal">Happy Couple</h2>
+                    <div class="w-24 h-px bg-gold mx-auto mt-6"></div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-12 lg:gap-20">
+                    
+                    <!-- Bride (Peshani) -->
+                    <div class="flex-1 text-center md:text-right" data-aos="fade-right">
+                        <span class="text-xs uppercase tracking-[0.28em] text-gold font-bold block mb-2">The Bride</span>
+                        <h3 class="font-script text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-charcoal leading-none mb-3">Peshani</h3>
+                        <p class="font-serif text-base sm:text-lg font-semibold text-charcoal/70 tracking-wider mb-4">H. G. J. Gamage</p>
+                        <div class="w-16 h-px bg-gold/50 mx-auto md:ml-auto md:mr-0 mb-4"></div>
+                        <p class="font-sans text-charcoal/70 max-w-sm ml-auto text-sm leading-relaxed">
+                            A beautiful soul ready to begin a lifetime of shared laughter, enduring warmth, and boundless memories.
+                        </p>
+                    </div>
+
+                    <div class="hidden md:flex flex-col items-center justify-center z-10" data-aos="zoom-in">
+                        <div class="h-20 w-px bg-gold/50 mb-3"></div>
+                        <div class="w-16 h-16 rounded-full bg-white border border-gold flex items-center justify-center text-3xl font-script text-gold shadow-sm">&</div>
+                        <div class="h-20 w-px bg-gold/50 mt-3"></div>
+                    </div>
+
+                    <div class="md:hidden text-4xl font-script text-gold my-2" data-aos="zoom-in">&</div>
+
+                    <!-- Groom (Sandeepa) -->
+                    <div class="flex-1 text-center md:text-left" data-aos="fade-left">
+                        <span class="text-xs uppercase tracking-[0.28em] text-gold font-bold block mb-2">The Groom</span>
+                        <h3 class="font-script text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-charcoal leading-none mb-3">Sandeepa</h3>
+                        <p class="font-serif text-base sm:text-lg font-semibold text-charcoal/70 tracking-wider mb-4">M. M. W. Jayasooriya</p>
+                        <div class="w-16 h-px bg-gold/50 mx-auto md:mr-auto md:ml-0 mb-4"></div>
+                        <p class="font-sans text-charcoal/70 max-w-sm mr-auto text-sm leading-relaxed">
+                            Stepping joyfully into tomorrow, promising unwavering devotion, protection, and boundless partnership.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section id="events" class="py-20 md:py-32 bg-white relative">
+            <div class="max-w-5xl mx-auto px-4">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <span class="text-gold text-sm tracking-widest uppercase mb-2 block">When & Where</span>
+                    <h2 class="font-serif text-4xl md:text-5xl text-charcoal">Wedding Details</h2>
+                    <div class="w-24 h-px bg-gold mx-auto mt-6"></div>
+                </div>
+
+                <div class="max-w-xl mx-auto border-gold-gradient p-8 md:p-12 text-center bg-peach-50/50 rounded-2xl shadow-lg relative overflow-hidden" data-aos="fade-up">
+                    <div class="text-gold text-4xl mb-4">
+                        <i class="fas fa-ring text-4xl"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl mb-2 text-charcoal">The Wedding Ceremony</h3>
+                    <p class="font-sans font-semibold text-lg text-gold mb-1">Thursday, 5th November 2026</p>
+                    
+                    <div class="my-6 border-t border-b border-peach-200 py-4 space-y-2">
+                        <p class="text-charcoal/80"><i class="far fa-clock mr-2 text-gold"></i> Poruwa Ceremony: <span class="font-bold">10:55 AM</span></p>
+                        <p class="text-charcoal/80"><i class="fas fa-glass-cheers mr-2 text-gold"></i> Reception &amp; Lunch to follow</p>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <h4 class="font-serif text-xl mb-1 text-charcoal">Canterbury Hotel & Golf Resort</h4>
+                        <p class="text-sm text-charcoal/70">
+                            Kahathuduwa, Sri Lanka
+                        </p>
+                    </div>
+                    
+                    <a href="https://maps.google.com/?q=Canterbury+Hotel+and+Golf+Resort+Kahathuduwa" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-3 bg-gold hover:bg-gold-dark text-white text-xs uppercase tracking-widest font-semibold rounded-full shadow-md hover:shadow-lg transition-all">
+                        <i class="fas fa-map-marker-alt mr-2"></i> View Location on Map
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section (Balanced 4-Photo Luxury Grid) -->
+        <section id="gallery" class="py-20 md:py-32 bg-peach-50 relative">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <span class="text-gold text-sm tracking-widest uppercase mb-2 block">Captured Moments</span>
+                    <h2 class="font-serif text-4xl md:text-5xl text-charcoal">Our Memories</h2>
+                    <div class="w-24 h-px bg-gold mx-auto mt-6"></div>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                    <!-- Photo 1 -->
+                    <div class="overflow-hidden rounded-2xl shadow-md border-2 border-gold/30 group bg-white p-2 hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-full h-56 sm:h-72 md:h-80 rounded-xl overflow-hidden">
+                            <img src="photo1.jpg" onerror="this.src='https://images.unsplash.com/photo-1520854221256-17451cc331bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'" alt="Memory 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                    </div>
+
+                    <!-- Photo 2 -->
+                    <div class="overflow-hidden rounded-2xl shadow-md border-2 border-gold/30 group bg-white p-2 hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-full h-56 sm:h-72 md:h-80 rounded-xl overflow-hidden">
+                            <img src="photo2.jpg" onerror="this.src='https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'" alt="Memory 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                    </div>
+
+                    <!-- Photo 3 -->
+                    <div class="overflow-hidden rounded-2xl shadow-md border-2 border-gold/30 group bg-white p-2 hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-full h-56 sm:h-72 md:h-80 rounded-xl overflow-hidden">
+                            <img src="photo3.jpg" onerror="this.src='https://images.unsplash.com/photo-1460364157752-926555421a7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'" alt="Memory 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                    </div>
+
+                    <!-- Photo 4 -->
+                    <div class="overflow-hidden rounded-2xl shadow-md border-2 border-gold/30 group bg-white p-2 hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="400">
+                        <div class="w-full h-56 sm:h-72 md:h-80 rounded-xl overflow-hidden">
+                            <img src="photo4.jpg" onerror="this.src='https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'" alt="Memory 4" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LUXURY ARCHED RSVP SECTION -->
+        <section id="rsvp" class="py-20 md:py-32 bg-gradient-to-b from-peach-50 to-white relative">
+            <div class="max-w-xl mx-auto px-4">
+                
+                <!-- Personalized Guest Greeting Header -->
+                <div id="rsvp-guest-header" class="text-center mb-6" data-aos="fade-up">
+                    <span class="text-xs uppercase tracking-[0.25em] text-gold font-bold block mb-1">Personal Invitation For</span>
+                    <h3 id="rsvp-guest-title" class="font-serif text-2xl md:text-3xl font-semibold text-charcoal italic">Sapumal Perera</h3>
+                </div>
+
+                <!-- Arched Card Container -->
+                <div class="bg-white arched-card p-8 md:p-12 shadow-2xl border border-peach-200/60 relative overflow-hidden" data-aos="zoom-in">
+                    
+                    <!-- Top Monogram & Subtitle -->
+                    <div class="text-center mb-6">
+                        <div class="font-script text-4xl text-gold/80 mb-2">P & S</div>
+                        <h2 class="font-serif text-2xl md:text-3xl text-charcoal tracking-wider uppercase font-light">
+                            KINDLY <span class="font-script lowercase text-3xl md:text-4xl text-gold capitalize">Rsvp</span>
+                        </h2>
+                        <p class="font-serif italic text-charcoal/70 text-xs md:text-sm mt-2 max-w-xs mx-auto">
+                            Your presence is our greatest honor. Please let us know if you will be joining us.
+                        </p>
+                    </div>
+
+                    <!-- RSVP Form -->
+                    <form id="rsvp-form" class="space-y-6" onsubmit="handleRSVPSubmit(event)">
+                        
+                        <!-- Full Name -->
+                        <div>
+                            <label for="name" class="block text-[11px] uppercase tracking-widest text-charcoal/60 mb-1.5 font-semibold text-center md:text-left">Full Name *</label>
+                            <input type="text" id="name" name="name" required class="w-full border-b-2 border-peach-200 py-2.5 px-2 focus:outline-none focus:border-gold transition-colors bg-peach-50/40 rounded-t-sm text-charcoal font-medium text-center md:text-left text-sm" placeholder="e.g. Sapumal Perera">
+                        </div>
+
+                        <!-- Email Address -->
+                        <div>
+                            <label for="email" class="block text-[11px] uppercase tracking-widest text-charcoal/60 mb-1.5 font-semibold text-center md:text-left">Email Address</label>
+                            <input type="email" id="email" name="email" class="w-full border-b-2 border-peach-200 py-2.5 px-2 focus:outline-none focus:border-gold transition-colors bg-peach-50/40 rounded-t-sm text-charcoal text-center md:text-left text-sm" placeholder="youremail@example.com">
+                        </div>
+
+                        <!-- Attendance Radio Pill Buttons -->
+                        <div>
+                            <label class="block text-[11px] uppercase tracking-widest text-charcoal/60 mb-2 font-semibold text-center">Will you attend?</label>
+                            <div class="grid grid-cols-2 gap-3 max-w-sm mx-auto">
+                                <button type="button" id="btn-accept" onclick="setAttendance('Joyfully accepts')" class="py-3 px-3 rounded-xl border text-xs md:text-sm font-medium tracking-wide transition-all shadow-md scale-[1.02] flex items-center justify-center gap-1.5 bg-[#8da076] text-white border-[#8da076]">
+                                    <i class="fas fa-check-circle text-xs"></i>
+                                    <span>Joyfully accepts</span>
+                                </button>
+                                <button type="button" id="btn-decline" onclick="setAttendance('Regretfully declines')" class="py-3 px-3 rounded-xl border text-xs md:text-sm font-medium tracking-wide transition-all shadow-sm flex items-center justify-center gap-1.5 bg-white text-charcoal/70 border-peach-200 hover:border-peach-300">
+                                    <i class="far fa-circle text-xs opacity-40"></i>
+                                    <span>Regretfully declines</span>
+                                </button>
+                            </div>
+                            <input type="hidden" id="attendance" name="attendance" value="Joyfully accepts">
+                        </div>
+
+                        <!-- Number of Guests Counter Stepper -->
+                        <div id="guests-counter-wrap" class="pt-2 text-center">
+                            <label class="block text-[11px] uppercase tracking-widest text-charcoal/60 mb-2 font-semibold">Number of Guests</label>
+                            <div class="inline-flex items-center justify-center gap-5 bg-peach-50/80 px-5 py-2 rounded-full border border-peach-200">
+                                <button type="button" onclick="changeGuestCount(-1)" class="w-8 h-8 rounded-full bg-white text-charcoal shadow-sm flex items-center justify-center text-lg font-bold hover:bg-peach-100 active:scale-95 transition" aria-label="Decrease guests">-</button>
+                                <span id="guest-count-display" class="font-serif text-xl font-bold text-charcoal w-6 text-center">1</span>
+                                <button type="button" onclick="changeGuestCount(1)" class="w-8 h-8 rounded-full bg-white text-charcoal shadow-sm flex items-center justify-center text-lg font-bold hover:bg-peach-100 active:scale-95 transition" aria-label="Increase guests">+</button>
+                            </div>
+                            <input type="hidden" id="guests" name="guests" value="1">
+                        </div>
+
+                        <!-- Optional Personal Message -->
+                        <div>
+                            <label for="message" class="block text-[11px] uppercase tracking-widest text-charcoal/60 mb-1.5 font-semibold text-center md:text-left">Message for the couple (Optional)</label>
+                            <textarea id="message" name="message" rows="2" class="w-full border-b-2 border-peach-200 py-2 px-2 focus:outline-none focus:border-gold transition-colors bg-peach-50/40 rounded-t-sm text-charcoal resize-none text-sm placeholder-charcoal/30" placeholder="Wishing you both a lifetime of love and joy..."></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="text-center pt-2">
+                            <button id="rsvp-submit-btn" type="submit" class="bg-gold hover:bg-gold-dark text-white px-10 py-3.5 rounded-full uppercase tracking-widest text-xs font-semibold transition-all shadow-md hover:shadow-lg w-full max-w-xs">
+                                Confirm RSVP
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Custom Thank You Message -->
+                    <div id="thank-you-msg" class="hidden mt-6 p-6 bg-peach-50 border border-gold/40 text-center rounded-2xl shadow-sm">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-gold text-2xl mx-auto mb-3 shadow-sm">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4 class="font-serif text-2xl mb-1 text-charcoal">Thank You!</h4>
+                        <p class="font-serif italic text-charcoal/80 text-sm">Your RSVP has been lovingly received.<br>We can't wait to celebrate with you!</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- COUPLE DIRECT PHONE CONTACT SECTION (Call Option Only) -->
+        <section id="contact-couple" class="py-16 md:py-24 bg-peach-50/70 border-t border-peach-200/60 relative">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <span class="text-xs uppercase tracking-[0.25em] text-gold font-bold block mb-1" data-aos="fade-up">Warm Inquiries</span>
+                <h2 class="font-serif text-3xl md:text-4xl text-charcoal mb-3" data-aos="fade-up">Contact the Couple</h2>
+                <p class="font-serif italic text-charcoal/70 text-sm max-w-md mx-auto mb-10" data-aos="fade-up">
+                    For directions, inquiries, or direct wishes, please feel free to give either of us a call.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-xl mx-auto" data-aos="zoom-in">
+                    
+                    <!-- Bride Contact Card (Peshani) -->
+                    <div class="bg-white rounded-2xl p-6 shadow-md border border-peach-200/80 hover:shadow-xl transition-all text-center flex flex-col items-center">
+                        <span class="text-[10px] uppercase tracking-widest text-gold font-bold mb-1">The Bride</span>
+                        <h3 class="font-script text-4xl text-charcoal mb-4">Peshani</h3>
+                        
+                        <a href="tel:+94715307124" class="w-full py-3 px-4 bg-peach-50 hover:bg-gold text-charcoal hover:text-white border border-gold/60 rounded-xl text-sm font-semibold flex items-center justify-center gap-2.5 shadow-sm hover:shadow-md transition-all group">
+                            <i class="fas fa-phone-alt text-gold group-hover:text-white transition-colors text-sm"></i>
+                            <span class="tracking-wide font-mono">+94 71 530 7124</span>
+                        </a>
+                    </div>
+
+                    <!-- Groom Contact Card (Sandeepa) -->
+                    <div class="bg-white rounded-2xl p-6 shadow-md border border-peach-200/80 hover:shadow-xl transition-all text-center flex flex-col items-center">
+                        <span class="text-[10px] uppercase tracking-widest text-gold font-bold mb-1">The Groom</span>
+                        <h3 class="font-script text-4xl text-charcoal mb-4">Sandeepa</h3>
+                        
+                        <a href="tel:+94716880490" class="w-full py-3 px-4 bg-peach-50 hover:bg-gold text-charcoal hover:text-white border border-gold/60 rounded-xl text-sm font-semibold flex items-center justify-center gap-2.5 shadow-sm hover:shadow-md transition-all group">
+                            <i class="fas fa-phone-alt text-gold group-hover:text-white transition-colors text-sm"></i>
+                            <span class="tracking-wide font-mono">+94 71 688 0490</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer class="bg-charcoal pt-16 pb-8 text-center text-white/70">
+            <h2 class="font-script text-5xl mb-4 text-white">Peshani & Sandeepa</h2>
+            <p class="font-serif italic text-lg mb-4 text-gold">5 . 11 . 2026</p>
+            <p class="text-xs uppercase tracking-widest opacity-50">&copy; 2026 Peshani & Sandeepa Wedding. All rights reserved.</p>
+            
+            <!-- Protected Admin Link in Footer -->
+            <p class="mt-4">
+                <button onclick="checkAdminAccess()" class="text-[11px] text-white/30 hover:text-gold transition">
+                    <i class="fas fa-lock text-[9px] mr-1"></i>Guest Manager (Couple Only)
+                </button>
+            </p>
+        </footer>
+    </div>
+
+    <!-- PASSCODE PROTECTED MODAL -->
+    <div id="admin-pin-modal" class="hidden fixed inset-0 z-[300] bg-black/65 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-sm rounded-2xl shadow-2xl p-6 md:p-8 text-center border border-peach-200 relative animate-in fade-in zoom-in duration-200">
+            <button onclick="closePinModal()" class="absolute top-3.5 right-3.5 text-charcoal/40 hover:text-charcoal w-7 h-7 rounded-full flex items-center justify-center bg-peach-50">
+                <i class="fas fa-times text-xs"></i>
+            </button>
+
+            <div class="w-12 h-12 rounded-full bg-peach-100 text-gold text-xl flex items-center justify-center mx-auto mb-3 shadow-inner">
+                <i class="fas fa-user-shield"></i>
+            </div>
+            <span class="text-[10px] uppercase tracking-[0.2em] text-gold font-bold block mb-1">Couple Dashboard Access</span>
+            <h4 class="font-serif text-xl text-charcoal font-semibold">Enter Passcode</h4>
+            <p class="text-xs text-charcoal/60 mt-1 mb-4">Please enter your passcode to open the Guest Manager.</p>
+
+            <div id="admin-pin-error" class="hidden mb-3 p-2 rounded-lg bg-red-50 border border-red-200 text-red-600 text-xs font-medium"></div>
+
+            <form onsubmit="handlePinSubmit(event)" class="space-y-4">
+                <div>
+                    <input type="password" id="admin-pin-input" class="w-full text-center text-lg tracking-widest px-4 py-2.5 border-2 border-peach-200 focus:border-gold rounded-xl outline-none font-bold text-charcoal bg-peach-50/40" placeholder="••••" autocomplete="off" autofocus>
+                </div>
+                <div class="flex gap-2">
+                    <button type="button" onclick="closePinModal()" class="w-1/2 py-2.5 rounded-xl border border-peach-200 text-xs font-semibold text-charcoal/70 hover:bg-peach-50 transition">
+                        Cancel
+                    </button>
+                    <button type="submit" class="w-1/2 py-2.5 rounded-xl bg-gold hover:bg-gold-dark text-white text-xs font-semibold shadow-md transition">
+                        Unlock
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ADMIN GUEST MANAGEMENT & WHATSAPP MODAL -->
+    <div id="guest-modal" class="hidden fixed inset-0 z-[250] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-md rounded-2xl shadow-2xl p-6 md:p-8 relative max-h-[92vh] overflow-y-auto">
+            
+            <button onclick="closeGuestModal()" class="absolute top-4 right-4 text-charcoal/50 hover:text-charcoal text-lg w-8 h-8 rounded-full flex items-center justify-center bg-peach-50">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="mb-5">
+                <span class="text-[10px] uppercase tracking-[0.25em] text-gold font-bold block mb-1">Couple Dashboard</span>
+                <h3 class="font-serif text-2xl text-charcoal font-semibold">Send Invitation</h3>
+                <p class="text-xs text-charcoal/60 mt-1">Create a personalized invitation link and send via WhatsApp</p>
+            </div>
+
+            <div id="modal-alert-msg" class="hidden mb-3 p-2.5 rounded-lg bg-red-50 border border-red-200 text-red-600 text-xs"></div>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-charcoal mb-1">GUEST NAME *</label>
+                    <input type="text" id="modal-guest-name" value="Sapumal Perera" oninput="updateGeneratedLinkPreview()" class="w-full px-3 py-2.5 border border-peach-200 rounded-lg focus:outline-none focus:border-gold text-sm" placeholder="e.g. Sapumal Perera">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-charcoal mb-1">WHATSAPP NUMBER</label>
+                    <div class="flex items-center border border-peach-200 rounded-lg overflow-hidden focus-within:border-gold">
+                        <span class="px-3 py-2 bg-peach-50 text-xs font-bold text-charcoal/70 border-r border-peach-200 flex items-center gap-1">
+                            🇱🇰 +94
+                        </span>
+                        <input type="tel" id="modal-guest-phone" class="w-full px-3 py-2 text-sm focus:outline-none" placeholder="771234567">
+                    </div>
+                    <span class="text-[10px] text-charcoal/40 mt-0.5 block">Enter without leading 0 (e.g. 771234567)</span>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-charcoal mb-1">HEAD COUNT (Seats)</label>
+                    <select id="modal-guest-count" onchange="updateGeneratedLinkPreview()" class="w-full px-3 py-2 border border-peach-200 rounded-lg focus:outline-none focus:border-gold text-sm bg-white">
+                        <option value="1">1 Person</option>
+                        <option value="2">2 Persons (Couple)</option>
+                        <option value="3">3 Persons (Family)</option>
+                        <option value="4">4 Persons (Family)</option>
+                        <option value="5">5+ Persons</option>
+                    </select>
+                </div>
+
+                <!-- Generated Link Preview & Copy -->
+                <div class="pt-2">
+                    <label class="block text-[11px] font-semibold text-charcoal/70 mb-1 uppercase tracking-wider">Personalized Link Preview</label>
+                    <div class="flex items-center gap-2">
+                        <input type="text" id="modal-generated-url" readonly class="w-full px-3 py-2 bg-peach-50 text-xs text-charcoal/80 rounded-lg border border-peach-200 select-all font-mono">
+                        <button type="button" id="btn-copy-link" onclick="copyGeneratedLink()" class="px-3 py-2 bg-peach-100 hover:bg-peach-200 text-charcoal rounded-lg text-xs font-semibold whitespace-nowrap transition">
+                            <i class="far fa-copy mr-1"></i> Copy
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Big WhatsApp Action Button -->
+                <div class="pt-3">
+                    <button type="button" onclick="sendViaWhatsApp()" class="w-full py-3.5 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-xl font-semibold text-sm flex items-center justify-center gap-2 shadow-lg transition-all active:scale-[0.99]">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                        <span>Chat on WhatsApp</span>
+                    </button>
+                    <p class="text-center text-[10px] text-charcoal/50 mt-1.5">Opens WhatsApp with pre-written romantic message & personal link</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- AOS Library & Core JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // --- 1. Admin Security Passcode Configuration ---
+        const ADMIN_PASSCODE = "Nadun@104";
+        let isAdminAuthenticated = false;
+
+        // --- 2. Google Sheets Webhook URL ---
+        const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbx4Z-AR4WMEaezzbeOj-9rffqdB7FY2455BGsXS5It6SSHnY8nwvsMOAEigued-fs99PA/exec";
+
+        function checkAdminAccess() {
+            if (isAdminAuthenticated) {
+                showGuestModalDirect();
+                return;
+            }
+            openPinModal();
+        }
+
+        function openPinModal() {
+            const modal = document.getElementById('admin-pin-modal');
+            const input = document.getElementById('admin-pin-input');
+            const err = document.getElementById('admin-pin-error');
+            if (err) err.classList.add('hidden');
+            if (input) input.value = '';
+            if (modal) modal.classList.remove('hidden');
+            setTimeout(() => { if (input) input.focus(); }, 150);
+        }
+
+        function closePinModal() {
+            const modal = document.getElementById('admin-pin-modal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function handlePinSubmit(e) {
+            e.preventDefault();
+            const input = document.getElementById('admin-pin-input');
+            const err = document.getElementById('admin-pin-error');
+            const entered = input ? input.value.trim() : '';
+
+            if (entered === ADMIN_PASSCODE) {
+                isAdminAuthenticated = true;
+                closePinModal();
+                showGuestModalDirect();
+            } else {
+                if (err) {
+                    err.textContent = "Incorrect passcode! Please try again.";
+                    err.classList.remove('hidden');
+                }
+                if (input) {
+                    input.value = '';
+                    input.focus();
+                }
+            }
+        }
+
+        function showGuestModalDirect() {
+            document.getElementById('guest-modal').classList.remove('hidden');
+            const alertBox = document.getElementById('modal-alert-msg');
+            if (alertBox) alertBox.classList.add('hidden');
+            updateGeneratedLinkPreview();
+        }
+
+        function closeGuestModal() {
+            document.getElementById('guest-modal').classList.add('hidden');
+        }
+
+        // --- 3. Music Player System ---
+        const audioElement = document.getElementById('wedding-audio');
+
+        class RomanticMusicEngine {
+            constructor() {
+                this.ctx = null;
+                this.isPlaying = false;
+                this.timer = null;
+                this.masterGain = null;
+            }
+
+            init() {
+                if (!this.ctx) {
+                    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                    this.ctx = new AudioCtx();
+                    this.masterGain = this.ctx.createGain();
+                    this.masterGain.gain.setValueAtTime(0.35, this.ctx.currentTime);
+
+                    this.delay = this.ctx.createDelay();
+                    this.delay.delayTime.setValueAtTime(0.32, this.ctx.currentTime);
+                    this.delayGain = this.ctx.createGain();
+                    this.delayGain.gain.setValueAtTime(0.35, this.ctx.currentTime);
+
+                    this.delay.connect(this.delayGain);
+                    this.delayGain.connect(this.delay);
+
+                    this.masterGain.connect(this.ctx.destination);
+                    this.masterGain.connect(this.delay);
+                    this.delay.connect(this.ctx.destination);
+                }
+                if (this.ctx.state === 'suspended') {
+                    this.ctx.resume();
+                }
+            }
+
+            playTone(freq, duration, volume = 0.22, delayOffset = 0) {
+                if (!this.ctx || !this.isPlaying) return;
+                const start = this.ctx.currentTime + delayOffset;
+
+                const osc = this.ctx.createOscillator();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(freq, start);
+
+                const gain = this.ctx.createGain();
+                gain.gain.setValueAtTime(0.0001, start);
+                gain.gain.linearRampToValueAtTime(volume, start + 0.02);
+                gain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
+
+                osc.connect(gain);
+                gain.connect(this.masterGain);
+
+                osc.start(start);
+                osc.stop(start + duration + 0.1);
+            }
+
+            start() {
+                this.init();
+                if (this.isPlaying) return;
+                this.isPlaying = true;
+
+                const progression = [
+                    { bass: 146.83, arpeggio: [220.00, 293.66, 369.99, 440.00] },
+                    { bass: 110.00, arpeggio: [164.81, 220.00, 277.18, 329.63] },
+                    { bass: 123.47, arpeggio: [146.83, 220.00, 293.66, 369.99] },
+                    { bass: 98.00,  arpeggio: [146.83, 196.00, 246.94, 293.66] }
+                ];
+
+                let step = 0;
+                const loop = () => {
+                    if (!this.isPlaying) return;
+                    const chord = progression[step % progression.length];
+                    this.playTone(chord.bass, 2.5, 0.35, 0);
+                    chord.arpeggio.forEach((note, index) => {
+                        this.playTone(note, 1.4, 0.2, 0.35 * (index + 1));
+                    });
+                    step++;
+                    this.timer = setTimeout(loop, 1750);
+                };
+                loop();
+            }
+
+            stop() {
+                this.isPlaying = false;
+                if (this.timer) clearTimeout(this.timer);
+            }
+        }
+
+        const synthBackupEngine = new RomanticMusicEngine();
+        let isAudioPlaying = false;
+
+        function playWeddingMusic() {
+            if (audioElement && audioElement.currentSrc) {
+                audioElement.play().then(() => {
+                    isAudioPlaying = true;
+                    updateMusicUI(true);
+                }).catch(() => {
+                    synthBackupEngine.start();
+                    isAudioPlaying = true;
+                    updateMusicUI(true);
+                });
+            } else {
+                synthBackupEngine.start();
+                isAudioPlaying = true;
+                updateMusicUI(true);
+            }
+        }
+
+        function pauseWeddingMusic() {
+            if (audioElement) {
+                audioElement.pause();
+            }
+            synthBackupEngine.stop();
+            isAudioPlaying = false;
+            updateMusicUI(false);
+        }
+
+        function toggleMusic() {
+            if (isAudioPlaying) {
+                pauseWeddingMusic();
+            } else {
+                playWeddingMusic();
+            }
+        }
+
+        // --- 4. Envelope Animation & User Triggers ---
+        const envelope = document.getElementById('envelope');
+        const envelopeScreen = document.getElementById('envelope-screen');
+        const mainContent = document.getElementById('main-content');
+        const musicToggleBtn = document.getElementById('music-toggle');
+        const musicIcon = document.getElementById('music-icon');
+        let isOpened = false;
+
+        function updateMusicUI(playing) {
+            if (playing) {
+                musicToggleBtn.classList.add('playing');
+                musicIcon.className = "fas fa-pause";
+            } else {
+                musicToggleBtn.classList.remove('playing');
+                musicIcon.className = "fas fa-music";
+            }
+        }
+
+        function openEnvelope() {
+            if (isOpened) return;
+            isOpened = true;
+
+            playWeddingMusic();
+            envelope.classList.add('open');
+
+            setTimeout(() => {
+                envelopeScreen.style.opacity = '0';
+                envelopeScreen.style.visibility = 'hidden';
+                mainContent.classList.add('visible');
+                initPetals();
+                
+                setTimeout(() => { AOS.init({ once: true, offset: 50, duration: 800 }); }, 500);
+            }, 2200);
+        }
+
+        // --- 5. Navigation & UI Handlers ---
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled', 'py-2');
+                navbar.classList.remove('py-4');
+            } else {
+                navbar.classList.remove('nav-scrolled', 'py-2');
+                navbar.classList.add('py-4');
+            }
+        });
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        }
+
+        // --- 6. Countdown Timer Logic ---
+        const targetDate = new Date("Nov 5, 2026 10:55:00").getTime();
+        const countdownTimer = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                const el = document.getElementById('countdown');
+                if (el) el.innerHTML = "<div class='text-2xl font-serif text-gold'>Today is the Day!</div>";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            const daysEl = document.getElementById("days");
+            const hoursEl = document.getElementById("hours");
+            const minsEl = document.getElementById("minutes");
+            const secsEl = document.getElementById("seconds");
+
+            if (daysEl) daysEl.textContent = days < 10 ? '0' + days : days;
+            if (hoursEl) hoursEl.textContent = hours < 10 ? '0' + hours : hours;
+            if (minsEl) minsEl.textContent = minutes < 10 ? '0' + minutes : minutes;
+            if (secsEl) secsEl.textContent = seconds < 10 ? '0' + seconds : seconds;
+        }, 1000);
+
+        // --- 7. Personalized Guest Link & RSVP UI Logic ---
+        let currentGuestCount = 1;
+
+        function setAttendance(choice) {
+            document.getElementById('attendance').value = choice;
+            const acceptBtn = document.getElementById('btn-accept');
+            const declineBtn = document.getElementById('btn-decline');
+            const counterWrap = document.getElementById('guests-counter-wrap');
+
+            if (choice === 'Joyfully accepts') {
+                acceptBtn.className = "py-3 px-3 rounded-xl border text-xs md:text-sm font-medium tracking-wide transition-all shadow-md scale-[1.02] flex items-center justify-center gap-1.5 bg-[#8da076] text-white border-[#8da076]";
+                acceptBtn.innerHTML = '<i class="fas fa-check-circle text-xs"></i><span>Joyfully accepts</span>';
+
+                declineBtn.className = "py-3 px-3 rounded-xl border text-xs md:text-sm font-medium tracking-wide transition-all shadow-sm flex items-center justify-center gap-1.5 bg-white text-charcoal/70 border-peach-200 hover:border-peach-300";
+                declineBtn.innerHTML = '<i class="far fa-circle text-xs opacity-40"></i><span>Regretfully declines</span>';
+                
+                if (counterWrap) counterWrap.style.display = 'block';
+            } else {
+                declineBtn.className = "py-3 px-3 rounded-xl border text-xs md:text-sm font-medium tracking-wide transition-all shadow-md scale-[1.02] flex items-center justify-center gap-1.5 bg-charcoal/80 text-white border-charcoal";
+                declineBtn.innerHTML = '<i class="fas fa-times-circle text-xs"></i><span>Regretfully declines</span>';
+
+                acceptBtn.className = "py-3 px-3 rounded-xl border text-xs md:text-sm font-medium tracking-wide transition-all shadow-sm flex items-center justify-center gap-1.5 bg-white text-charcoal/70 border-peach-200 hover:border-peach-300";
+                acceptBtn.innerHTML = '<i class="far fa-circle text-xs opacity-40"></i><span>Joyfully accepts</span>';
+                
+                if (counterWrap) counterWrap.style.display = 'none';
+            }
+        }
+
+        function changeGuestCount(delta) {
+            currentGuestCount = Math.max(1, Math.min(10, currentGuestCount + delta));
+            document.getElementById('guest-count-display').textContent = currentGuestCount;
+            document.getElementById('guests').value = currentGuestCount;
+        }
+
+        function applyLiveGuestName(name) {
+            const cleanName = (name || '').trim();
+            const displayName = cleanName || "Honored Guest";
+
+            const envName = document.getElementById('envelope-guest-name');
+            if (envName) envName.textContent = displayName;
+
+            const cardGuest = document.getElementById('card-guest-name');
+            if (cardGuest) cardGuest.textContent = displayName;
+
+            const rsvpTitle = document.getElementById('rsvp-guest-title');
+            if (rsvpTitle) rsvpTitle.textContent = displayName;
+
+            const nameInput = document.getElementById('name');
+            if (nameInput) nameInput.value = cleanName;
+
+            const modalName = document.getElementById('modal-guest-name');
+            if (modalName && modalName !== document.activeElement) {
+                modalName.value = cleanName;
+            }
+
+            updateGeneratedLinkPreview();
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // --- 8. URL Parameter & Mode Detector ---
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const guestFromUrl = params.get('guest') || params.get('to') || params.get('name');
+            const count = params.get('count');
+            const isAdminMode = params.has('admin');
+
+            const testerBar = document.getElementById('live-guest-tester');
+            const adminDesktopBtn = document.getElementById('admin-desktop-btn');
+            const navActionBtn = document.getElementById('nav-action-btn');
+            const navActionIcon = document.getElementById('nav-action-icon');
+            const navActionLabel = document.getElementById('nav-action-label');
+
+            if (isAdminMode) {
+                if (testerBar) {
+                    testerBar.classList.remove('hidden');
+                    testerBar.classList.add('flex');
+                }
+                if (adminDesktopBtn) {
+                    adminDesktopBtn.classList.remove('hidden');
+                    adminDesktopBtn.classList.add('flex');
+                }
+                if (navActionBtn) {
+                    navActionBtn.removeAttribute('target');
+                    navActionBtn.href = "javascript:void(0)";
+                    navActionBtn.onclick = checkAdminAccess;
+                    navActionIcon.className = "fab fa-whatsapp text-base mb-0.5 text-green-600";
+                    navActionLabel.textContent = "Invite";
+                }
+            } else {
+                if (testerBar) testerBar.remove();
+                if (adminDesktopBtn) adminDesktopBtn.remove();
+            }
+
+            const guestName = guestFromUrl ? guestFromUrl.trim() : (isAdminMode ? "Sapumal Perera" : "");
+            
+            if (guestName) {
+                applyLiveGuestName(guestName);
+                const testerInput = document.getElementById('live-tester-input');
+                if (testerInput) testerInput.value = guestName;
+            } else {
+                const badge = document.getElementById('envelope-guest-badge');
+                if (badge && !guestFromUrl) {
+                    badge.classList.add('opacity-0', 'pointer-events-none');
+                }
+            }
+
+            if (count) {
+                const parsedCount = parseInt(count, 10);
+                if (!isNaN(parsedCount) && parsedCount >= 1) {
+                    currentGuestCount = parsedCount;
+                    document.getElementById('guest-count-display').textContent = currentGuestCount;
+                    document.getElementById('guests').value = currentGuestCount;
+                    const modalCount = document.getElementById('modal-guest-count');
+                    if (modalCount) modalCount.value = String(parsedCount);
+                }
+            }
+        });
+
+        // --- 9. Admin WhatsApp & Link Generator Functions ---
+        function getBaseUrl() {
+            if (!window.location.origin || window.location.origin === "null" || window.location.origin.startsWith("about")) {
+                return "https://peshani-sandeepa.wedding";
+            }
+            return window.location.origin + window.location.pathname;
+        }
+
+        function updateGeneratedLinkPreview() {
+            const guestInput = document.getElementById('modal-guest-name');
+            const guestName = guestInput ? guestInput.value.trim() : "";
+            const countEl = document.getElementById('modal-guest-count');
+            const count = countEl ? countEl.value : "1";
+            const baseUrl = getBaseUrl();
+
+            let finalUrl = baseUrl;
+            if (guestName) {
+                finalUrl += `?guest=${encodeURIComponent(guestName)}&count=${encodeURIComponent(count)}`;
+            }
+            const previewEl = document.getElementById('modal-generated-url');
+            if (previewEl) previewEl.value = finalUrl;
+            return finalUrl;
+        }
+
+        function copyGeneratedLink() {
+            const input = document.getElementById('modal-generated-url');
+            input.select();
+            document.execCommand('copy');
+            const btn = document.getElementById('btn-copy-link');
+            const originalHtml = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check text-green-600"></i><span class="text-green-600">Copied!</span>';
+            setTimeout(() => { btn.innerHTML = originalHtml; }, 2500);
+        }
+
+        function sendViaWhatsApp() {
+            const guestName = document.getElementById('modal-guest-name').value.trim();
+            let phone = document.getElementById('modal-guest-phone').value.trim();
+            const alertBox = document.getElementById('modal-alert-msg');
+
+            if (!guestName) {
+                if (alertBox) {
+                    alertBox.textContent = "Please enter the Guest's Name first!";
+                    alertBox.classList.remove('hidden');
+                }
+                return;
+            } else if (alertBox) {
+                alertBox.classList.add('hidden');
+            }
+
+            const personalUrl = updateGeneratedLinkPreview();
+
+            const message = `Hi ${guestName} 🌸🌸\n\n` +
+                `With so much love and happiness in our hearts, we're excited to invite you to celebrate the start of our journey together - Peshani & Sandeepa.\n\n` +
+                `It would truly mean the world to us to have you with us on this special day 🕊️\n\n` +
+                `Invitation: ${personalUrl}\n\n` +
+                `We can't wait to celebrate with you!`;
+
+            let cleanPhone = phone.replace(/[^0-9]/g, '');
+            if (cleanPhone.startsWith('0')) cleanPhone = cleanPhone.substring(1);
+            if (cleanPhone.length > 0 && !cleanPhone.startsWith('94')) {
+                cleanPhone = '94' + cleanPhone;
+            }
+
+            let waUrl = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(message)}`;
+            if (!cleanPhone) {
+                waUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+            }
+
+            window.open(waUrl, '_blank');
+        }
+
+        // --- 10. Free Google Sheet RSVP Submission Handler ---
+        function handleRSVPSubmit(e) {
+            e.preventDefault();
+
+            const form = document.getElementById('rsvp-form');
+            const submitBtn = document.getElementById('rsvp-submit-btn');
+            const thankYouMsg = document.getElementById('thank-you-msg');
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const attendance = document.getElementById('attendance').value;
+            const guests = document.getElementById('guests').value;
+            const message = document.getElementById('message').value.trim();
+
+            const payload = {
+                timestamp: new Date().toLocaleString(),
+                name: name,
+                email: email,
+                attendance: attendance,
+                guests: guests,
+                message: message
+            };
+
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            submitBtn.disabled = true;
+
+            if (GOOGLE_SHEET_URL) {
+                fetch(GOOGLE_SHEET_URL, {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify(payload)
+                })
+                .then(() => {
+                    form.style.display = 'none';
+                    thankYouMsg.classList.remove('hidden');
+                })
+                .catch(err => {
+                    console.error("Submission note:", err);
+                    form.style.display = 'none';
+                    thankYouMsg.classList.remove('hidden');
+                });
+            } else {
+                setTimeout(() => {
+                    form.style.display = 'none';
+                    thankYouMsg.classList.remove('hidden');
+                }, 600);
+            }
+        }
+
+        // --- 11. Falling Floating Hearts Animation ---
+        function initPetals() {
+            const canvas = document.getElementById('petals-canvas');
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let petals = [];
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            class Petal {
+                constructor() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height - height;
+                    this.w = 14 + Math.random() * 12;
+                    this.h = this.w;
+                    this.opacity = 0.18 + Math.random() * 0.22;
+                    this.speedX = -0.6 + Math.random() * 1.2;
+                    this.speedY = 0.7 + Math.random() * 0.9;
+                    this.rotation = Math.random() * 360;
+                    this.rotSpeed = -1.2 + Math.random() * 2.4;
+                    const colors = [
+                        'rgba(255, 175, 175, ' + this.opacity + ')',
+                        'rgba(255, 195, 185, ' + this.opacity + ')',
+                        'rgba(242, 190, 150, ' + this.opacity + ')'
+                    ];
+                    this.color = colors[Math.floor(Math.random() * colors.length)];
+                }
+                draw() {
+                    ctx.save();
+                    ctx.translate(this.x, this.y);
+                    ctx.rotate((this.rotation * Math.PI) / 180);
+                    
+                    const s = this.w / 24;
+                    ctx.beginPath();
+                    ctx.moveTo(0, -6 * s);
+                    ctx.bezierCurveTo(-5 * s, -12 * s, -11 * s, -7 * s, -11 * s, -2 * s);
+                    ctx.bezierCurveTo(-11 * s, 3 * s, -4 * s, 7 * s, 0, 12 * s);
+                    ctx.bezierCurveTo(4 * s, 7 * s, 11 * s, 3 * s, 11 * s, -2 * s);
+                    ctx.bezierCurveTo(11 * s, -7 * s, 5 * s, -12 * s, 0, -6 * s);
+                    ctx.closePath();
+                    
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                    ctx.restore();
+                }
+                update() {
+                    this.y += this.speedY;
+                    this.x += this.speedX + Math.sin(this.y / 60) * 0.6;
+                    this.rotation += this.rotSpeed;
+                    
+                    if (this.y > height + 20) {
+                        this.y = -20;
+                        this.x = Math.random() * width;
+                    }
+                    if (this.x > width + 20) this.x = -20;
+                    else if (this.x < -20) this.x = width + 20;
+                }
+            }
+
+            for (let i = 0; i < 18; i++) petals.push(new Petal());
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                petals.forEach(p => { p.update(); p.draw(); });
+                requestAnimationFrame(animate);
+            }
+            animate();
+        }
+    </script>
+</body>
+</html>
