@@ -514,7 +514,7 @@
                     <div class="env-card-line"></div>
                     <p class="env-card-date">THURSDAY, NOV 5, 2026</p>
                     <p class="env-card-venue">Canterbury Hotel &amp; Golf Resort</p>
-                    <div class="env-card-badge" id="card-guest-name">Sapumal Perera</div>
+                    <div class="env-card-badge" id="card-guest-name">Warmly Invited</div>
                 </div>
             </div>
 
@@ -598,7 +598,7 @@
             </div>
 
             <!-- Personalized Guest Tag on Envelope -->
-            <div id="envelope-guest-badge" class="my-2 inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/95 border border-gold/60 shadow-lg backdrop-blur-md">
+            <div id="envelope-guest-badge" class="my-2 inline-flex hidden-center gap-2 px-5 py-2 rounded-full bg-white/95 border border-gold/60 shadow-lg backdrop-blur-md">
                 <span class="text-[10px] uppercase tracking-widest text-gold-dark font-bold">Cordially Invited:</span>
                 <span id="envelope-guest-name" class="font-serif italic text-charcoal text-sm font-semibold">Sapumal Perera</span>
             </div>
@@ -818,7 +818,7 @@
             <div class="max-w-xl mx-auto px-4">
                 
                 <!-- Personalized Guest Greeting Header -->
-                <div id="rsvp-guest-header" class="text-center mb-6" data-aos="fade-up">
+                <div id="rsvp-guest-header" class="hidden text-center mb-6" data-aos="fade-up">
                     <span class="text-xs uppercase tracking-[0.25em] text-gold font-bold block mb-1">Personal Invitation For</span>
                     <h3 id="rsvp-guest-title" class="font-serif text-2xl md:text-3xl font-semibold text-charcoal italic">Sapumal Perera</h3>
                 </div>
@@ -1394,7 +1394,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // --- 8. URL Parameter & Mode Detector ---
+       // 8. URL Parameter & Mode Detector
         window.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);
             const guestFromUrl = params.get('guest') || params.get('to') || params.get('name');
@@ -1428,17 +1428,29 @@
                 if (adminDesktopBtn) adminDesktopBtn.remove();
             }
 
-            const guestName = guestFromUrl ? guestFromUrl.trim() : (isAdminMode ? "Sapumal Perera" : "Honored Guest");
-            
-            if (guestName) {
-                applyLiveGuestName(guestName);
-                const testerInput = document.getElementById('live-tester-input');
-                if (testerInput) testerInput.value = guestName;
-            } else {
-                const badge = document.getElementById('envelope-guest-badge');
-                if (badge && !guestFromUrl) {
-                    badge.classList.add('opacity-0', 'pointer-events-none');
+            const guestBadge = document.getElementById('envelope-guest-badge');
+            const rsvpHeader = document.getElementById('rsvp-guest-header');
+            const cardGuest = document.getElementById('card-guest-name');
+
+            // Specific Guest කෙනෙක් සිටී නම් පමණක් නම් පෙන්වයි
+            if (guestFromUrl && guestFromUrl.trim() !== '') {
+                const cleanGuest = guestFromUrl.trim();
+                applyLiveGuestName(cleanGuest);
+                if (guestBadge) {
+                    guestBadge.classList.remove('hidden');
+                    guestBadge.classList.add('inline-flex');
                 }
+                if (rsvpHeader) {
+                    rsvpHeader.classList.remove('hidden');
+                }
+                if (cardGuest) {
+                    cardGuest.textContent = cleanGuest;
+                }
+            } else {
+                // සාමාන්‍ය Link එකක් නම් කිසිදු පුද්ගලික නමක් නොපෙන්වයි
+                if (guestBadge) guestBadge.classList.add('hidden');
+                if (rsvpHeader) rsvpHeader.classList.add('hidden');
+                if (cardGuest) cardGuest.textContent = "Warmly Invited";
             }
 
             if (count) {
